@@ -15,7 +15,7 @@ function CardComp(props) {
                     <CardTitle>{props.judul}</CardTitle>
                     <CardSubtitle>{props.tanggal}</CardSubtitle>
                     <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                    <Button color="secondary">
+                    <Button outline color="info">
                         <Link to={
                             {
                                 pathname: `/detail/${props.id}`,
@@ -27,7 +27,7 @@ function CardComp(props) {
                         }>
                             Detail
                         </Link>
-                    </Button>
+                    </Button>{' '}
                 </CardBody>
             </Card>
         </div>

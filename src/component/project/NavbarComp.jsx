@@ -27,6 +27,9 @@ const NavbarComp = (props) => {
           <NavItem className="item">
             <NavLink href="/about">About</NavLink>
           </NavItem>
+          <NavItem className="item">
+            <NavLink href="/mahasiswa">Mahasiswa</NavLink>
+          </NavItem>
           <Form>
              <Input type="text" id="exampleEmail" placeholder="Search Anything ..." />
             </Form>

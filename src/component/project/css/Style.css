@@ -15,7 +15,12 @@ Form{
 /* Media For Handphone */
 @media (max-width: 575px) {
     .colom{
-        margin-bottom: 50px;
+        display: flex;
+        padding-bottom: 50px;
+    }
+
+    CardComp{
+        padding-bottom: 50px;
     }
     
     .navbar__logo{

@@ -29,6 +29,10 @@ function AboutPage() {
                         <CardComp id="3" judul="Belajar Angular" tanggal="16-08-2020" />
                     </Col>   
                     
+                    <Col>
+                        <CardComp id="3" judul="Belajar Angular" tanggal="16-08-2020" />
+                    </Col>   
+                    
                 </Row>
             </Container>     
         </div>
