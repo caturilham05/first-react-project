@@ -1,0 +1,40 @@
+.colom{
+    padding: 20px;
+}
+
+Form{
+    width: 200px;
+    margin-right: 3px;
+}
+
+.tombol{
+    height: 38px;
+    width: 100px;
+}
+
+/* Media For Handphone */
+@media (max-width: 575px) {
+    .colom{
+        margin-bottom: 50px;
+    }
+    
+    .navbar__logo{
+        margin: 5px;
+        padding: 3rem;
+    }
+
+    .item{
+        margin-left:150px;
+    }
+
+    Form{
+        width: 340px;
+        padding: 5px;
+    }
+
+    .tombol{
+        width: 335px;
+    }
+}
+
+/* End Media From Handphone */
