@@ -10,6 +10,7 @@ Form{
 .tombol{
     height: 38px;
     width: 100px;
+    background-color: #021e36;
 }
 
 /* Media For Handphone */

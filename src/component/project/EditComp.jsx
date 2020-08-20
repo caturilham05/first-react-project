@@ -1,58 +1,66 @@
-import React, { Component } from 'react'
-import axios from 'axios'
-import { Container, Col, Row, FormGroup, Alert, Label, Input, Button, Form} from 'reactstrap';
-import {Link} from 'react-router-dom'
+import React, { Component } from 'react';
+import axios from 'axios';
+import qs from 'querystring';
+import { Link } from 'react-router-dom';
+import { Container, Col, Row, FormGroup, Alert, Label, Input, Button, Form } from 'reactstrap';
+
 
 const api = 'http://localhost:3001';
 
-class TambahComp extends Component {
-    constructor(props){
+
+class EditComp extends Component {
+    constructor(props) {
         super(props)
 
         this.state = {
-            nim: '',
-            nama: '',
-            jurusan: '',
+            id_mahasiswa: this.props.location.state.id_mahasiswa,
+            nim: this.props.location.state.nim,
+            nama: this.props.location.state.nama,
+            jurusan: this.props.location.state.jurusan,
             response: '',
             display: 'none'
         }
     }
 
     handleChange = (e) => {
-        this.setState({[e.target.name] : e.target.value})
+        this.setState({ [e.target.name]: e.target.value })
     }
 
-    addMahasiswa = () => {
-        axios.post(api+'/posts', {
+    ubahMahasiswa = (idmahasiswa) => {
+        const data = qs.stringify({
+            id_mahasiswa: idmahasiswa,
             nim: this.state.nim,
             nama: this.state.nama,
             jurusan: this.state.jurusan
-        }).then(json => {
-            if(json.data.status === 200){
+        })
+
+        axios.put(api+'/edit', data).then(json => {
+            if (json === 200) {
                 this.setState({
                     response: json.data.values,
                     display: 'block'
                 })
-                this.props.history.push('/mahasiswa')
-            }else{
+            } else {
                 this.setState({
                     response: json.data.values,
                     display: 'block'
                 })
             }
         })
+
     }
-    
+
 
     render() {
         return (
-           <Container>
-               <h2>Form Tambah Data</h2>
-               <Alert color="success" style={{display: this.state.display}}>
+            <Container>
+                <h2>Form Edit Data</h2>
+                <Alert color="success" style={{display: this.state.display
+            }}>
                 {this.state.response}
                </Alert>
-               <hr/>
-               <Form className="form">
+                <hr />
+                <Form className="form">
                     <Col>
                         <Label><b>Nomor Induk Mahasiswa</b></Label>
                         <FormGroup>
@@ -83,15 +91,15 @@ class TambahComp extends Component {
                         <FormGroup>
                             <Row>
                                 <Col>
-                                    <Button type="button" onClick={this.addMahasiswa}>Submit</Button>
+                                    <Button type="button" onClick={()=>this.ubahMahasiswa(this.state.id_mahasiswa)}>Edit</Button>
                                 </Col>
                             </Row>
                         </FormGroup>
                     </Col>
-               </Form>
-           </Container>
-        )
+                </Form>
+            </Container>
+        );
     }
 }
 
-export default TambahComp
+export default EditComp;
